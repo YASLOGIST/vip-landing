@@ -1,105 +1,68 @@
 <div align="center">
 
-# **VIP-Landing**
-### Cinematic Conversion Engine — Edge-Deployed.
+# VIP Motors Atelier
+### Private showroom interface — dependency-free at the edge.
 
-*Frame-perfect landing surfaces engineered for asymmetric conversion.*
-
-![Status](https://img.shields.io/badge/status-staging-1f6feb?style=flat-square)
-![Deployment](https://img.shields.io/badge/deploy-edge_network-0a0a0a?style=flat-square)
-![Source](https://img.shields.io/badge/source-restricted-d11414?style=flat-square)
-![LCP](https://img.shields.io/badge/LCP-%3C1.2s-2ea043?style=flat-square)
-![Lighthouse](https://img.shields.io/badge/lighthouse-95%2B-2ea043?style=flat-square)
+**A cinematic, bilingual landing surface for a premium automotive concierge.**
 
 </div>
 
 ---
 
-## Overview
+## What this is
 
-A high-performance, GPU-accelerated landing layer built for premium product launches, VIP campaigns, and conversion-critical surfaces. Every frame is choreographed. Every byte is interrogated.
+VIP Motors Atelier is a static, conversion-focused landing experience for private vehicle sourcing, curated inventory, and white-glove ownership services. It is designed to deploy directly to any static host or CDN without a build pipeline.
 
-This public repository is a **staging mirror** — a sanitized build artifact used for edge CDN validation, Lighthouse audits, and deployment infrastructure checks. The production source — proprietary WebGL shaders, 3D asset pipelines, GSAP timeline orchestration, and the cinematic motion system — lives in a private monorepo under restricted access.
-
-> No production code ships through this surface. This is the showcase, not the engine room.
-
----
+The implementation deliberately avoids a client framework, runtime UI dependency, and heavy 3D asset. The page still feels dimensional through a CSS-rendered hero vehicle, layered lighting, motion-safe reveal choreography, and pointer-aware visual depth.
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    A[Private Monorepo<br/>Production Source] -->|signed build| B[CI / Audit Gate]
-    B -->|canary 5%| C[Edge Network]
-    C -->|rollout 100%| D[VIP-Landing<br/>Public Staging Mirror]
-    style A fill:#0a0a0a,stroke:#d11414,color:#fff
-    style D fill:#1f6feb,stroke:#fff,color:#fff
+```text
+index.html       semantic shell, SEO metadata, JSON-LD, progressive form discovery
+script.js        content model, bilingual renderer, interactions, form delivery
+style.css        responsive design system, CSS vehicle art, motion and accessibility
 ```
 
-Access to the private monorepo requires NDA + internal approval.
+### Runtime flow
 
----
+1. The browser receives a small HTML shell and loads the stylesheet and one deferred script.
+2. `script.js` renders the selected locale from the `copy` content model.
+3. Intersection observers progressively reveal content and track the active section.
+4. The contact form submits as a Netlify-compatible URL-encoded request with a honeypot field.
+5. `prefers-reduced-motion`, keyboard focus, semantic labels, and inline form feedback are treated as first-class behavior.
 
-## Stack
+## Product capabilities
 
-| Layer | Technology |
-|---|---|
-| **Framework** | Next.js (App Router · RSC · Edge runtime) |
-| **Motion** | GSAP 3 · ScrollTrigger · custom timeline orchestration |
-| **3D / WebGL** | Three.js · React Three Fiber · custom GLSL shaders |
-| **Styling** | TailwindCSS · design-token system · variable fonts |
-| **Performance** | GPU compositing · lazy 3D loading · subpixel rendering |
-| **Delivery** | Edge CDN · streaming SSR · ISR · signed artifacts |
+- English / Arabic locale switching with `lang`, `dir`, and persisted preference.
+- Responsive navigation with keyboard-accessible mobile drawer.
+- Curated collection cards that deep-link a selected vehicle into the inquiry form.
+- CSS-only hero vehicle and showroom art: no remote GLB, WebGL, or model runtime required.
+- Scroll progress, active navigation state, reveal transitions, pointer tilt, and reduced-motion fallback.
+- Netlify form discovery in the static HTML shell plus enhanced async submission in the visible form.
+- SEO description, Open Graph metadata, semantic sections, skip link, live form status, and JSON-LD.
 
----
+## Run locally
 
-## Performance Budget
+No install step is required:
 
-Non-negotiable. Anything below these thresholds is rejected at the deploy gate.
-
-| Metric | Target |
-|---|---|
-| LCP | `< 1.2s` |
-| FID / INP | `< 50ms` |
-| CLS | `< 0.02` |
-| TTI (4G) | `< 2.0s` |
-| TTFB (edge) | `< 80ms` |
-| Lighthouse | `95+` across all categories |
-
----
-
-## Design Principles
-
-1. **Cinema over decoration.** Motion serves narrative, never noise.
-2. **Performance is the design.** A beautiful page that lags is a failure.
-3. **Asymmetric experiences for asymmetric intent.** This is not a brochure.
-4. **Edge-first.** TTFB measured in milliseconds, not seconds.
-5. **Restraint at speed.** 60fps is the floor, not the ceiling.
-
----
-
-## Deployment
-
-Fully automated. No manual pushes. No exceptions.
-
-```
-build  →  audit  →  canary (5%)  →  edge rollout (100%)
+```bash
+python3 -m http.server 4173 --bind 0.0.0.0
 ```
 
-Every artifact is content-hashed, signed, and immutable.
+Open `http://localhost:4173` in a browser. For a production deployment, publish the repository root to a static host with Netlify form handling enabled.
 
----
+## Performance posture
 
-## Access
+- Zero framework hydration or runtime transpilation.
+- One deferred application script; no Tailwind CDN, React CDN, Babel runtime, or model-viewer dependency.
+- CSS art avoids large hero media and reserves layout dimensions to prevent cumulative shift.
+- Motion is observer-driven, uses `requestAnimationFrame` for pointer and scroll work, and is disabled for reduced-motion users.
+- External fonts are the only presentation dependency and have `preconnect` hints plus system fallbacks.
 
-- **Public staging mirror:** read-only.
-- **Production source:** restricted. NDA + internal approval required.
-- **Security disclosures:** private channel only.
+## Design principles
 
----
-
-<div align="center">
-
-**Proprietary · All Rights Reserved**
-
-</div>
+1. Cinema over decoration. Motion supports the story.
+2. Performance is part of the visual system.
+3. Private intent should feel answered before it is submitted.
+4. Bilingual content is a product behavior, not a translation afterthought.
+5. Every interactive control should remain understandable without motion.
