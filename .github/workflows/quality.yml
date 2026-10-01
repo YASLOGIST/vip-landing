@@ -2,8 +2,9 @@ name: Quality
 
 on:
   push:
-    branches: [arena/01a0f5a8-vip-landing]
+    branches: [arena/01a0f5d0-vip-landing, main]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
