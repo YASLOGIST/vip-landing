@@ -6,10 +6,13 @@
     <meta name="theme-color" content="#0b0d0f" />
     <meta name="color-scheme" content="dark" />
     <meta name="description" content="VIP Motors Atelier — discreet sourcing, private viewings, and concierge delivery for exceptional vehicles." />
+    <meta name="robots" content="index,follow" />
     <meta property="og:title" content="VIP Motors Atelier — Private showroom" />
     <meta property="og:description" content="A darker kind of luxury. Curated vehicles, confidential sourcing, and white-glove ownership." />
     <meta property="og:type" content="website" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; object-src 'none'; base-uri 'self'" />
     <title>VIP Motors Atelier | Private showroom</title>
+    <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" />
@@ -27,24 +30,30 @@
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-
-    <!-- Keeps Netlify form discovery available while the visible experience is progressively enhanced. -->
-    <form name="vip-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <!-- Static discovery record for Netlify; the enhanced and no-JS forms retain this exact payload. -->
+    <form name="vip-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
       <input type="hidden" name="form-name" value="vip-consultation" />
-      <input type="text" name="bot-field" tabindex="-1" autocomplete="off" />
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="text" name="interest" />
-      <input type="text" name="timeline" />
-      <textarea name="notes"></textarea>
+      <input type="text" name="bot-field" autocomplete="off" />
+      <input name="name" /><input name="email" type="email" /><input name="interest" /><input name="timeline" /><input name="channel" /><textarea name="notes"></textarea>
     </form>
-
     <div id="app"></div>
 
     <noscript>
-      <div class="noscript-message">
-        JavaScript is required to view the VIP Motors Atelier experience. Please enable it and reload.
-      </div>
+      <main class="noscript-experience" id="main-content">
+        <p class="eyebrow">VIP Motors Atelier · Private showroom</p>
+        <h1>A darker kind of luxury.</h1>
+        <p>JavaScript is unavailable, so the interactive gallery is paused. You can still send a confidential vehicle brief using the form below.</p>
+        <form class="noscript-form" name="vip-consultation" method="POST" action="/">
+          <input type="hidden" name="form-name" value="vip-consultation" />
+          <label>Full name <input name="name" autocomplete="name" required /></label>
+          <label>Email address <input name="email" type="email" autocomplete="email" required /></label>
+          <label>Vehicle interest <input name="interest" required /></label>
+          <label>Purchase timing <input name="timeline" required /></label>
+          <label>Preferred next step <input name="channel" required /></label>
+          <label>Private brief <textarea name="notes" rows="5"></textarea></label>
+          <button type="submit">Send confidential brief</button>
+        </form>
+      </main>
     </noscript>
 
     <script src="script.js" defer></script>
