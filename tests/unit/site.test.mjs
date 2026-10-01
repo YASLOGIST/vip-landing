@@ -83,6 +83,8 @@ test("runtime renders the bilingual brief, private-brief dialog, and form progre
   assert.match(document.querySelector("[data-brief-dialog]").textContent, /Emerald Voltage/);
   document.querySelector("[data-brief-request]").click();
   assert.equal(document.querySelector('select[name="interest"]').value, "hybrid-gt");
+  await new Promise((resolve) => setTimeout(resolve, 600));
+  assert.equal(document.activeElement, document.querySelector('.contact-form input[name="name"]'));
 
   const form = document.querySelector(".contact-form");
   form.querySelector('input[name="name"]').value = "Ari Client";

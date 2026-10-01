@@ -476,7 +476,7 @@ function startInquiry(interest) {
   const form = document.querySelector(".contact-form");
   updateFormProgress(form);
   document.getElementById("contact")?.scrollIntoView({ behavior: prefersReducedMotion.matches ? "auto" : "smooth", block: "start" });
-  window.setTimeout(() => document.querySelector('input[name="name"]')?.focus(), prefersReducedMotion.matches ? 0 : 550);
+  window.setTimeout(() => document.querySelector('.contact-form input[name="name"]')?.focus(), prefersReducedMotion.matches ? 0 : 550);
 }
 
 function updateFormProgress(form) {
