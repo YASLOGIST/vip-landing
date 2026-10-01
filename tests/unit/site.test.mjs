@@ -46,6 +46,20 @@ test("first-party critical assets stay inside the 150 KB transfer budget", () =>
   assert.ok(total < 150 * 1024, `critical first-party assets are ${total} bytes`);
 });
 
+test("the social card ships as a valid looping GIF and is wired into the shell", () => {
+  const html = read("index.html");
+  assert.match(html, /property="og:image" content="assets\/og-image-animated\.gif"/);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
+  assert.match(html, /property="og:image:width" content="1200"/);
+
+  const gif = readFileSync(resolve(root, "assets/og-image-animated.gif"));
+  assert.equal(gif.subarray(0, 6).toString("latin1").startsWith("GIF"), true, "GIF signature missing");
+  assert.equal(gif.readUInt16LE(6), 1200, "social card must be 1200 wide");
+  assert.equal(gif.readUInt16LE(8), 630, "social card must be 630 tall");
+  assert.ok(gif.length <= 2.5 * 1024 * 1024, `social card is ${gif.length} bytes (policy: 2.5 MB)`);
+  assert.ok(gif.includes(Buffer.from("NETSCAPE2.0", "latin1")), "loop-forever extension missing");
+});
+
 async function createRuntime() {
   const { Window } = await import("happy-dom");
   const window = new Window({ url: "http://localhost:4173/" });
