@@ -40,7 +40,7 @@ test("private brief routes the selected vehicle into the concierge form", async 
   await dialog.locator("[data-brief-request]").click();
   await expect(dialog).toHaveCount(0);
   await expect(page.locator('select[name="interest"]')).toHaveValue("hybrid-gt");
-  await expect(page.locator('input[name="name"]')).toBeFocused();
+  await expect(page.locator('.contact-form input[name="name"]')).toBeFocused();
 });
 
 test("consultation progress and successful delivery cover the main conversion flow", async ({ page }) => {
@@ -67,13 +67,16 @@ test("the no-JavaScript fallback retains a usable confidential brief form", asyn
   const page = await context.newPage();
   await page.goto("http://127.0.0.1:4173/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("darker kind of luxury");
-  await expect(page.locator('form[name="vip-consultation"]')).toBeVisible();
-  await expect(page.locator('input[name="channel"]')).toBeVisible();
+  await expect(page.locator(".noscript-form")).toBeVisible();
+  await expect(page.locator('.noscript-form input[name="channel"]')).toBeVisible();
   await context.close();
 });
 
 test("critical screen has no automated accessibility violations @a11y", async ({ page }) => {
   await page.goto("/");
+  // Fade-in elements intentionally begin transparent. Audit their settled state, not an animation frame.
+  await page.evaluate(() => document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible")));
+  await page.waitForTimeout(900);
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
 });
