@@ -1,6 +1,12 @@
 <div align="center">
+  <img
+    src="./assets/readme/vip-motors-hero.gif"
+    alt="Cinematic animated VIP Motors Atelier showroom: an obsidian grand tourer, a slow light sweep, and the YASLOGIST engineering signature."
+    width="100%"
+  />
+</div>
 
-<img src="assets/og-image-animated.gif" width="840" alt="VIP Motors Atelier — an obsidian grand coupe in a gold-lit private showroom, with a slow specular light sweep, drifting gold dust and the brand wordmark in Playfair Display." />
+<p align="center"><sub><a href="./assets/readme/vip-motors-hero.png">Open the 1920 × 720 static poster</a> · locally stored 9.6-second loop</sub></p>
 
 # VIP Motors Atelier
 
@@ -8,16 +14,9 @@
 
 **Discreet vehicle sourcing · private viewings · white-glove ownership — delivered as a static, security-hardened, accessibility-gated single page.**
 
-[Quickstart](#quickstart) · [System Architecture](#system-architecture) · [Feature Matrix](#feature-matrix) · [Core Workflows](#core-workflows) · [Tech Stack](#tech-stack) · [Quality Gates](#quality-gates) · [The Social Card](#the-social-card-og-image-animatedgif)
+<p align="center"><strong>YASLOGIST</strong> · parent creative-engineering signature · <a href="https://www.yaslogist.com">yaslogist.com</a></p>
 
-[![runtime dependencies: 0](https://img.shields.io/badge/runtime_dependencies-0-111519?labelColor=c9a66b)](#tech-stack)
-[![critical transfer](https://img.shields.io/badge/critical_transfer-95.4_of_150_KB-2f6f4f?labelColor=111519)](#performance--motion-budget)
-[![social card](https://img.shields.io/badge/social_card-1.9_MB_seamless_loop-6e3642?labelColor=111519)](#the-social-card-og-image-animatedgif)
-[![i18n](https://img.shields.io/badge/i18n-EN_and_AR_RTL-111519?labelColor=c9a66b)](#accessibility--internationalization)
-[![a11y](https://img.shields.io/badge/a11y-axe_clean-111519?labelColor=829582)](#quality-gates)
-[![node](https://img.shields.io/badge/node-%E2%89%A5_20-111519?labelColor=9b9b96)](#tech-stack)
-
-</div>
+<p align="center"><a href="#quickstart">Quickstart</a> · <a href="#system-architecture">System Architecture</a> · <a href="#feature-matrix">Feature Matrix</a> · <a href="#core-workflows">Core Workflows</a> · <a href="#readme-visual-assets">README Visual Assets</a> · <a href="#tech-stack">Tech Stack</a> · <a href="#quality-gates">Quality Gates</a> · <a href="#the-social-card-og-image-animatedgif">The Social Card</a></p>
 
 ---
 
@@ -151,11 +150,37 @@ stateDiagram-v2
 
 ---
 
+## README Visual Assets
+
+This is a separate, locally stored presentation layer; none of these README images are requested by or added to the landing page runtime. GitHub displays the animation as ordinary GIF images—no script, stylesheet, external image host, or custom browser behavior is required.
+
+| Asset | Canvas · motion | Size |
+| --- | --- | ---: |
+| `assets/readme/vip-motors-hero.gif` | 1920 × 720 · 96 frames × 100 ms · 9.6-second loop | 999,419 B |
+| `assets/readme/vip-motors-hero.png` | 1920 × 720 static poster | 855,799 B |
+| `assets/readme/conversion-signal.gif` | 1920 × 180 · 64 frames × 100 ms · 6.4-second loop | 174,524 B |
+| `assets/readme/yaslogist-signature.gif` | 1280 × 190 · 64 frames × 100 ms · 6.4-second loop | 136,673 B |
+| `assets/readme/vip-motors-stage.jpg` | 1696 × 624 original, unbranded showroom plate | 75,548 B |
+
+The five files total **2,241,963 B**. The hero’s first frame is already a complete composition, and the separate poster can be opened directly above. The motion is pre-rendered: a restrained showroom-light sweep, moving reflections and fine particles in the hero; the verified collection → dialog → prefilled brief → same-origin POST path in the signal strip; and a quiet rule glint in the closing signature.
+
+The repository contains the VIP Motors Atelier mark, but no official YASLOGIST logo asset. The parent identity is therefore represented by the exact **YASLOGIST** name, set typographically in the committed Manrope font—no substitute logo is invented.
+
+---
+
 ## Core Workflows
 
 ### W1 — The conversion spine
 
 From anonymous arrival to a qualified, correctly-prefilled confidential brief in four moves:
+
+<div align="center">
+  <img
+    src="./assets/readme/conversion-signal.gif"
+    alt="Animated visitor journey: curated collection → private specification dialog → prefilled confidential brief → same-origin form POST."
+    width="100%"
+  />
+</div>
 
 ```mermaid
 sequenceDiagram
@@ -417,6 +442,8 @@ No license file was present in the supplied repository — treat source and bran
 | Layout, CSS vehicle, effects, scripts | Original source in this repository | Verify project ownership before reuse |
 | `assets/mark.svg` | Created in this upgrade | Project-owned; add a license before redistribution |
 | `assets/og-image-animated.gif` + `tools/og/base.png` | AI-generated base plate, programmatic synthesis in this repo | Project-owned; add a license before redistribution |
+| `assets/readme/vip-motors-stage.jpg` | Newly generated, unbranded showroom artwork used as the README hero source | Project-specific source art; add a license before redistribution |
+| `assets/readme/vip-motors-hero.*`, `assets/readme/conversion-signal.gif`, `assets/readme/yaslogist-signature.gif` | Original README compositions with locally typeset identity and pre-rendered motion | Project-specific derivatives; font terms apply to embedded type |
 | `tools/og/fonts/*.ttf` | Playfair Display & Manrope (Google Fonts) | SIL Open Font License 1.1 — redistribution with the license preserved is permitted |
 | Google Fonts (page load) | Google Fonts CDN | Subject to their font licenses; self-host or document consent/privacy needs |
 
@@ -428,3 +455,19 @@ No license file was present in the supplied repository — treat source and bran
 - A production canonical URL is not yet known; OG/Twitter paths are relative and documented accordingly.
 - Production visual performance (FPS, LCP, INP, CLS) requires a real browser and deployed-host measurement; source-size budgets are not substitutes for field data.
 - Social-platform GIF behaviour varies and evolves; the card is designed so its static first frame is a complete, on-brand poster regardless.
+
+---
+
+## YASLOGIST
+
+<p align="center">
+  <a href="https://www.yaslogist.com">
+    <img
+      src="./assets/readme/yaslogist-signature.gif"
+      alt="YASLOGIST creative-engineering signature for VIP Motors Atelier."
+      width="100%"
+    />
+  </a>
+</p>
+
+<p align="center"><strong>YASLOGIST</strong> is the permanent creative-engineering signature behind this experience.<br /><a href="https://www.yaslogist.com">https://www.yaslogist.com</a></p>
